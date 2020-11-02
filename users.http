@@ -1,0 +1,8 @@
+GET http://localhost:2050/login/ HTTP/1.1
+
+###
+
+POST http://localhost:2050/signIn HTTP/1.1
+content-type: application/json
+
+###
