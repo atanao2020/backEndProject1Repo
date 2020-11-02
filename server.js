@@ -49,9 +49,23 @@ app.use(passport.session());
 app.get("/", (req,res) =>{
     res.render("homePage");
 })
-
+var userCount = 0;
 app.get("/userProfile",isLoggedIn ,(req,res) =>{
-    res.render("userProfile");
+    userCount++;
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write(`<center>
+               <body style="background-color:aqua">
+               <h1>Hello!\n </h1>
+               <h2>The user have had ${userCount} visits!\n</h2><br><br>
+               <div>
+                    <a href="/">Home</a><span> || </span>
+                    <a href="/logout">Logout</a>
+               </div>
+               </body>
+               </center>
+              `);
+    res.end();
+    //res.render("userProfile");
 })
 //Auth Routes
 app.get("/login",(req,res)=>{
