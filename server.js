@@ -85,7 +85,7 @@ app.get("/signIn",(req,res)=>{
 
 app.post("/signIn",(req,res)=>{
     
-    User.register(new User({username: req.body.username,fullName:req.body.fullName}),req.body.password,function(err,user){
+    User.register(new User({username: req.body.username,password:req.body.password,fullName:req.body.fullName}),req.body.password,function(err,user){
         if(err){
             console.log(err);
             res.render("signIn");
